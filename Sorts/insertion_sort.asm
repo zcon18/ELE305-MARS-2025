@@ -1,7 +1,7 @@
 .data
     #         0  1  2  3  4
     #         0  4  8  12 16
-Array: .word  70,6, 51,95,74,7,94,53,58,43,38,81,39,12,79,13,97,62,59,33,17,84,23,63,73,25,52,4,76,77,69,100,68,1,66,44,47,42,18,35,28,96,49,26,83,24,41,65,57,72,5,85,55,54,45,88,27,99,36,15,64,89,20,32,98,37,10,87,11,78,19,48,50,2,91,92,16,29,8,86,61,31,80,93,3,75,67,9,30,46,21,71,40,34,60,22,82,56,14,90,0
+Array: .word  70,6, 51,95,74,7,94,53,58,43,38,81,39,12,79,13,97,62,59,33,17,84,23,63,73,25,52,4,76,77,69,100,68,1,66,44,47,42,18,35,28,96,49,26,83,24,41,65,57,72,5,85,55,54,45,88,27,99,36,15,64,89,20,32,98,37,10,87,11,78,19,48,50,2,91,92,16,29,8,86,61,31,80,93,3,75,67,9,30,46,21,71,40,34,60,22,82,56,14,90
 Array_Length_Cheating: .word 0
 
 
@@ -15,8 +15,8 @@ Array_Length_Cheating: .word 0
 main:
 	la $s0, Array
 	la $s1, Array_Length_Cheating
-	sub $s1, $s1, $s0 #this is a way of quickly getting the array length which will change automatically if I decide to change it (note that this is not null termination, its using the labels which the assembler has access to)
-	li $s1, 101
+	sub $s1, $s1, $s0 
+	srl $s1, $s1, 2		#this is a way of quickly getting the array length which will change automatically if I decide to change it (note that this is not null termination, its using the labels which the assembler has access to)
 	
 	#move $a0, $s0
 	#addi $a1, $zero, 1
